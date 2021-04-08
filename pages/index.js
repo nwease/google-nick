@@ -1,65 +1,47 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import {MicrophoneIcon} from '@heroicons/react/solid';
+import {SearchIcon} from '@heroicons/react/outline';
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    return (
+        <div className=''>
+            <Head>
+                <title>
+                    Google Nick
+                </title>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+                <link rel='icon' href='/favicon.ico'/>
+            </Head>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+            {/*HEADER*/}
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+            {/*BODY*/}
+            <div className='w-full flex flex-col justify-center'>
+                <img
+                    className='object-contain h-20' src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
+                     alt='Google'
+                />
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+                <div className='flex rounded-full border border-gray-200 px-5 py-3 items-center hover:shadow-lg'>
+                    <SearchIcon className='h-5 mr-3 text-gray-500' />
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+                    <input className='flex-grow focus:outline-none' type='text'/>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+                    <MicrophoneIcon className='h-5' />
+                </div>
+
+                <div className='flex justify-center mt-8 space-x-4'>
+                    <button className='bg-[#f8f9fa] p-3 rounded-md'>
+                        Google Search
+                    </button>
+
+                    <button className='bg-[#f8f9fa] p-3 rounded-md'>
+                        I'm Feeling Lucky
+                    </button>
+                </div>
+            </div>
+
+            {/*FOOTER*/}
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    )
 }
