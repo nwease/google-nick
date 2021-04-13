@@ -23,7 +23,7 @@ function Search() {
             </Head>
 
             {/*HEADER*/}
-            <div className='flex items-center px-2 py-1'>
+            <header className='flex items-center p-6'>
                 <Image
                     src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
                     alt='Google'
@@ -31,22 +31,28 @@ function Search() {
                     width={100}
                 />
 
-                <form className='flex w-full mt-7 hover:shadow-lg focus-within:shadow-lg max-w-xl rounded-full border border-gray-200 px-5 py-3 items-center'>
+                <form className='flex px-5 py-3 ml-10 mr-5 border border-gray-200 rounded-full flex-grow shadow-lg max-w-2xl'>
                     <input
-                        className='flex-grow focus:outline-none'
+                        className='flex-grow w-full focus:outline-none'
                         type='search'
                         defaultValue={router.query.term}
                     />
 
-                    <SearchIcon className='h-5 mr-3 text-gray-500' />
+                    <MicrophoneIcon className='mr-3 h-5 text-blue-500' />
 
-                    <MicrophoneIcon className='h-5' />
+                    <SearchIcon className='h-5 text-blue-500' />
 
                     <button hidden>
                         Search
                     </button>
                 </form>
-            </div>
+
+                <img
+                    className='ml-auto h-10 rounded-full cursor-pointer transition duration-150 ease-out transform hover:scale-110'
+                    src='https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/trump_president_avatar_male-512.png'
+                    alt='Me'
+                />
+            </header>
 
             {/*SEARCH RESULTS*/}
         </div>
@@ -54,3 +60,13 @@ function Search() {
 }
 
 export default Search;
+
+export async function getServerSideProps(context) {
+    console.log(context.query.term);
+
+    return {
+        props: {
+            test: '12314654'
+        }
+    }
+}

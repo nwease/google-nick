@@ -12,8 +12,11 @@ export default function Home() {
 
     const search = (e) => {
         e.preventDefault();
+        const term = searchInput.current.value;
 
-        router.push(`/search?term=${searchInput.current.value}`)
+        if (!term) return;
+
+        router.push(`/search?term=${term}`)
     }
 
     return (
@@ -27,7 +30,7 @@ export default function Home() {
             </Head>
 
             {/*HEADER*/}
-            <div className='flex w-full p-5 justify-between text-sm'>
+            <header className='flex w-full p-5 justify-between text-sm'>
                 <div className='flex gap-x-4 items-center'>
                     <p className='link'>
                         About
@@ -53,7 +56,7 @@ export default function Home() {
                         alt='Me'
                     />
                 </div>
-            </div>
+            </header>
 
             {/*BODY*/}
             <form className='flex flex-1 items-center mt-44 flex-col w-full'>
@@ -75,6 +78,7 @@ export default function Home() {
 
                 <div className='flex flex-col w-1/2 gap-y-2 justify-center mt-8 sm:gap-y-0 sm:flex-row sm:gap-x-4'>
                     <button
+                        disabled
                         className='btn'
                         type='Submit'
                         onClick={search}
